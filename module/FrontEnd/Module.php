@@ -1,8 +1,11 @@
 <?php
 namespace FrontEnd;
 
+use Zend\Authentication\Adapter\DbTable;
+use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use FrontEnd\Model\MyAuthStorage;
 
 class Module{
     public function onBootstrap(MvcEvent $e){
@@ -43,6 +46,29 @@ class Module{
                 'namespaces' => array(
                     __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
                 ),
+            ),
+        );
+    }
+
+    public function getServiceConfig(){
+        return array(
+            'factories' => array(
+                'FrontEnd\Model\MyAuthStorage' => function($sm){
+                    return new MyAuthStorage('zf_tutorial');
+                },
+                'AuthService' => function($sm){
+                    //My assumption, you've alredy set dbAdapter
+                    //and has users table with columns : user_name and pass_word
+                    //that password hashed with md5
+                    $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+                    $dbTableAuthAdapter = new DbTable($dbAdapter,
+                        'users', 'user_name', 'pass_word');
+
+                    $authService = new AuthenticationService();
+                    $authService->setAdapter($dbTableAuthAdapter);
+                    $authService->setStorage($sm->get('FrontEnd\Model\MyAuthStorage'));
+                    return $authService;
+                },
             ),
         );
     }

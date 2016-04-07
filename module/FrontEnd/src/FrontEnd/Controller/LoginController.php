@@ -11,10 +11,10 @@ class LoginController extends AbstractActionController{
         $viewModel = new ViewModel($variablesContainer);
 
         //add component img-page.phtml into $viewModel
-        $imgPage = new ViewModel(array('imgURL' => 'login.png'));
-        $imgPage->setTemplate('frontend\component\img-page');
+        //        $imgPage = new ViewModel(array('imgURL' => 'login.png'));
+        //        $imgPage->setTemplate('frontend\component\img-page');
 
-        $viewModel->addChild($imgPage, 'imgPage');
+        //        $viewModel->addChild($imgPage, 'imgPage');ph
         return $viewModel;
     }
 }
