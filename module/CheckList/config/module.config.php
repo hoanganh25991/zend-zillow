@@ -5,19 +5,6 @@ return array(
             'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
         ),
     ),
-    'db' => array(
-        'adapters' => array(
-            'Checklist' => array(
-                'driver'         => 'Pdo',
-                'username'       => 'root',
-                'password'       => 'ifrc',
-                'dsn'            => 'mysql:dbname=zend_skeleton_tasklist;host=localhost',
-                'driver_options' => array(
-                    \PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
-                )
-            ),
-        ),
-    ),
     'controllers' => array(
         'invokables' => array(
             'CheckList\Controller\Task' => 'CheckList\Controller\TaskController',
@@ -30,7 +17,7 @@ return array(
                 'options' => array(
                     'route' => '/task[/:action[/:id]]',
                     'defaults' => array(
-                        'controller' => 'Task',
+                        'controller' => 'CheckList\Controller\Task',
                         'action' => 'index',
                     ),
                     'constraints' => array(

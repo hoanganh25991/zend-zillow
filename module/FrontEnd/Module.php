@@ -12,10 +12,10 @@ class Module{
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-        $eventManager->attach('dispatch', array(
-            $this,
-            'setLayout'
-        ), 100);
+//        $eventManager->attach('dispatch', array(
+//            $this,
+//            'setLayout'
+//        ), 200);
     }
 
     public function setLayout(MvcEvent $mvcEvent){
