@@ -11,7 +11,7 @@ return array(
     ),
     'router' => array(
         'routes' => array(
-            'home' => array(
+            'abc' => array(
                 'type' => 'literal',
                 'options' => array(
                     'route' => '/home',

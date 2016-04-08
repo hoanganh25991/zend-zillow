@@ -99,7 +99,6 @@ INSERT INTO `zend_zillow`.`role_permission` (`role_id`, `permission_id`) VALUES 
 INSERT INTO `zend_zillow`.`role_permission` (`role_id`, `permission_id`) VALUES (2, 4);
 INSERT INTO `zend_zillow`.`role_permission` (`role_id`, `permission_id`) VALUES (2, 5);
 INSERT INTO `zend_zillow`.`role_permission` (`role_id`, `permission_id`) VALUES (2, 6);
-INSERT INTO `zend_zillow`.`role_permission` (`role_id`, `permission_id`) VALUES (2, 7);
 INSERT INTO `zend_zillow`.`role_permission` (`role_id`, `permission_id`) VALUES (2, 12);
 INSERT INTO `zend_zillow`.`role_permission` (`role_id`, `permission_id`) VALUES (3, 1);
 INSERT INTO `zend_zillow`.`role_permission` (`role_id`, `permission_id`) VALUES (3, 2);

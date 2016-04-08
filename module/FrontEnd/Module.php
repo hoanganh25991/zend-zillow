@@ -1,21 +1,21 @@
 <?php
 namespace FrontEnd;
 
+use FrontEnd\Model\MyAuthStorage;
 use Zend\Authentication\Adapter\DbTable;
 use Zend\Authentication\AuthenticationService;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
-use FrontEnd\Model\MyAuthStorage;
 
 class Module{
     public function onBootstrap(MvcEvent $e){
         $eventManager = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
-//        $eventManager->attach('dispatch', array(
-//            $this,
-//            'setLayout'
-//        ), 200);
+        $eventManager->attach('dispatch', array(
+            $this,
+            'setLayout'
+        ), 200);
     }
 
     public function setLayout(MvcEvent $mvcEvent){
